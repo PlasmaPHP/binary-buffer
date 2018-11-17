@@ -43,7 +43,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @return $this
      */
     function prepend(string $data): self {
-        $this->buffer = $this->buffer.$data;
+        $this->buffer = $data.$this->buffer;
         return $this;
     }
     
