@@ -167,7 +167,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @return int|null
      */
     function readIntLength(): ?int {
-        $f = $this->readInt1($buffer);
+        $f = $this->readInt1();
         if($f <= 250) {
             return $f;
         }
@@ -177,14 +177,14 @@ class BinaryBuffer implements \ArrayAccess {
         }
         
         if($f === 252) {
-            return $this->readInt2($buffer);
+            return $this->readInt2();
         }
         
         if($f === 253) {
-            return $this->readInt3($buffer);
+            return $this->readInt3();
         }
         
-        return $this->readInt8($buffer);
+        return $this->readInt8();
     }
     
     /**
@@ -193,7 +193,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @return string|null
      */
     function readStringLength(?int $length = null): ?string {
-        $length = ($length !== null ? $length : $this->readIntLength($buffer));
+        $length = ($length !== null ? $length : $this->readIntLength());
         if($length === null) {
             return null;
         }
@@ -207,12 +207,12 @@ class BinaryBuffer implements \ArrayAccess {
      * @throws \InvalidArgumentException
      */
     function readStringNull(): string {
-        $pos = \strpos("\0");
+        $pos = \strpos($this->buffer, "\0");
         if($pos === false) {
             throw new \InvalidArgumentException('Missing NULL character');
         }
         
-        $str =  $this->read($pos);
+        $str = $this->read($pos);
         $this->read(1); // discard NULL byte
         
         return $str;
@@ -223,7 +223,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param int  $int
      * @return string
      */
-    function writeInt1(int $int): string {
+    static function writeInt1(int $int): string {
         return \chr($int);
     }
     
@@ -232,7 +232,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param int  $int
      * @return string
      */
-    function writeInt2(int $int): string {
+    static function writeInt2(int $int): string {
         return \pack('v', $int);
     }
     
@@ -241,7 +241,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param int  $int
      * @return string
      */
-    function writeInt3(int $int): string {
+    static function writeInt3(int $int): string {
         return \substr(\pack('V', $int), 0, 3);
     }
     
@@ -250,7 +250,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param int  $int
      * @return string
      */
-    function writeInt4(int $int): string {
+    static function writeInt4(int $int): string {
         return \pack('V', $int);
     }
     
@@ -259,7 +259,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param string|int  $int
      * @return string
      */
-    function writeInt8($int): string {
+    static function writeInt8($int): string {
         if(\PHP_INT_SIZE > 4) {
             return \pack('P', ((int) $int));
         }
@@ -292,7 +292,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @param float  $float
      * @return string
      */
-    function writeFloat(float $float): string {
+    static function writeFloat(float $float): string {
         return \pack('g', $float);
     }
     
@@ -301,35 +301,35 @@ class BinaryBuffer implements \ArrayAccess {
      * @param float  $float
      * @return string
      */
-    function writeDouble(float $float): string {
+    static function writeDouble(float $float): string {
         return \pack('e', $float);
     }
     
     /**
      * Builds length-encoded binary string from the MySQL protocol.
-     * @param string|null  $s
+     * @param string|null  $str
      * @return string
      */
-    function writeStringLength(?string $s): string {
-        if($s === NULL) {
+    static function writeStringLength(?string $str): string {
+        if($str === NULL) {
             // \xFB (251)
             return "\xFB";
         }
         
-        $l = \strlen($s);
-        if($l <= 250) {
-            return $this->writeInt1($l).$s;
+        $length = \strlen($str);
+        if($length <= 250) {
+            return static::writeInt1($length).$str;
         }
         
-        if($l <= 0xFFFF) { // max 2^16: \xFC (252)
-            return "\xFC".$this->writeInt2($l).$s;
+        if($length <= 0xFFFF) { // max 2^16: \xFC (252)
+            return "\xFC".static::writeInt2($length).$str;
         }
         
-        if($l <= 0xFFFFFF) { // max 2^24: \xFD (253)
-            return "\xFD".$this->writeInt3($l).$s;
+        if($length <= 0xFFFFFF) { // max 2^24: \xFD (253)
+            return "\xFD".static::writeInt3($length).$str;
         }
         
-        return "\xFE".$this->writeInt8($l).$s; // max 2^64: \xFE (254)
+        return "\xFE".static::writeInt8($length).$str; // max 2^64: \xFE (254)
     }
     
     /**
@@ -339,8 +339,9 @@ class BinaryBuffer implements \ArrayAccess {
      * @throws \InvalidArgumentException
      */
     function read(int $length): string {
-        if(\strlen($this->buffer) < $length) {
-            throw new \InvalidArgumentException('Trying to read behind buffer, requested '.$length.' bytes, only got '.\strlen($buffer).' bytes');
+        $size = $this->getSize();
+        if($size < $length) {
+            throw new \InvalidArgumentException('Trying to read behind buffer, requested '.$length.' bytes, only got '.$size.' bytes');
         }
         
         $str = \substr($this->buffer, 0, $length);
