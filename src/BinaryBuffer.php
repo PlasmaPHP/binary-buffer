@@ -127,6 +127,22 @@ class BinaryBuffer {
     }
     
     /**
+     * Reads a single precision float.
+     * @return float
+     */
+    function readFloat(): float {
+        return \unpack('g', $this->read(4))[1];
+    }
+    
+    /**
+     * Reads a double precision float.
+     * @return float
+     */
+    function readDouble(): float {
+        return \unpack('e', $this->read(8))[1];
+    }
+    
+    /**
      * Parses length-encoded binary integer from the MySQL protocol.
      * Returns the decoded integer 0 to 2^64 or `null` for special null int.
      * @return int|null
