@@ -12,7 +12,7 @@ namespace Plasma;
 /**
  * A binary buffer takes binary data and buffers it. Several methods are available to get specific data.
  */
-class BinaryBuffer {
+class BinaryBuffer implements \ArrayAccess {
     /**
      * @var string
      */
@@ -56,6 +56,14 @@ class BinaryBuffer {
     }
     
     /**
+     * Get the contents.
+     * @return string
+     */
+    function getContents(): string {
+        return $this->buffer;
+    }
+    
+    /**
      * Clears the buffer.
      * @return $this
      */
@@ -69,7 +77,7 @@ class BinaryBuffer {
      * @return int
      */
     function readInt1(): int {
-        return \ord($this->readBuffer(1));
+        return \ord($this->read(1));
     }
     
     /**
@@ -77,7 +85,7 @@ class BinaryBuffer {
      * @return int
      */
     function readInt2(): int {
-        return \unpack('v', $this->readBuffer(2))[1];
+        return \unpack('v', $this->read(2))[1];
     }
     
     /**
@@ -85,7 +93,7 @@ class BinaryBuffer {
      * @return int
      */
     function readInt3(): int {
-        return \unpack('V', $this->readBuffer(3)."\0")[1];
+        return \unpack('V', $this->read(3)."\0")[1];
     }
     
     /**
@@ -93,7 +101,7 @@ class BinaryBuffer {
      * @return int
      */
     function readInt4(): int {
-        return \unpack('V', $this->readBuffer(4))[1];
+        return \unpack('V', $this->read(4))[1];
     }
     
     /**
@@ -101,7 +109,7 @@ class BinaryBuffer {
      * @return int|string
      */
     function readInt8() {
-        $strInt = $this->readBuffer(8);
+        $strInt = $this->read(8);
         
         if(\PHP_INT_SIZE > 4) {
             return \unpack('P', $strInt)[1];
@@ -190,7 +198,7 @@ class BinaryBuffer {
             return null;
         }
         
-        return $this->readBuffer($length);
+        return $this->read($length);
     }
     
     /**
@@ -204,8 +212,8 @@ class BinaryBuffer {
             throw new \InvalidArgumentException('Missing NULL character');
         }
         
-        $str =  $this->readBuffer($pos);
-        $this->readBuffer(1); // discard NULL byte
+        $str =  $this->read($pos);
+        $this->read(1); // discard NULL byte
         
         return $str;
     }
@@ -330,7 +338,7 @@ class BinaryBuffer {
      * @return string
      * @throws \InvalidArgumentException
      */
-    function readBuffer(int $length): string {
+    function read(int $length): string {
         if(\strlen($this->buffer) < $length) {
             throw new \InvalidArgumentException('Trying to read behind buffer, requested '.$length.' bytes, only got '.\strlen($buffer).' bytes');
         }
@@ -339,5 +347,47 @@ class BinaryBuffer {
         $this->buffer = \substr($this->buffer, $length);
         
         return $str;
+    }
+    
+    /**
+     * @param int  $offset
+     * @return bool
+     * @internal
+     */
+    function offsetExists($offset) {
+        return isset($this->buffer[$offset]);
+    }
+    
+    /**
+     * @param int  $offset
+     * @return string
+     * @internal
+     */
+    function offsetGet($offset) {
+        return $this->buffer[$offset];
+    }
+    
+    /**
+     * @param int     $offset
+     * @param string  $value
+     * @return void
+     * @throws \InvalidArgumentException
+     * @internal
+     */
+    function offsetSet($offset, $value) {
+        if(!\is_string($value)) {
+            throw new \InvalidArgumentException('Illegal value of type '.\gettype($value));
+        }
+        
+        $this->buffer[$offset] = $value;
+    }
+    
+    /**
+     * @param int  $offset
+     * @return void
+     * @internal
+     */
+    function offsetUnset($offset) {
+        unset($this->buffer[$offset]);
     }
 }
