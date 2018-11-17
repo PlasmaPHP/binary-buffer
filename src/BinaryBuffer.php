@@ -48,6 +48,22 @@ class BinaryBuffer implements \ArrayAccess {
     }
     
     /**
+     * Slice the buffer and only keep a subset.
+     * @param int       $offset
+     * @param int|null  $length
+     * @return $this
+     */
+    function slice(int $offset, ?int $length = null): self {
+        if($length === null) {
+            $this->buffer = \substr($this->buffer, $offset);
+        } else {
+            $this->buffer = \substr($this->buffer, $offset, $length);
+        }
+        
+        return $this;
+    }
+    
+    /**
      * Get the buffer size/length.
      * @return int
      */
