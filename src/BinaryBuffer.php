@@ -16,7 +16,7 @@ class BinaryBuffer {
     /**
      * @var string
      */
-    protected $buffer;
+    protected $buffer = '';
     
     /**
      * @var bool
@@ -30,19 +30,21 @@ class BinaryBuffer {
     /**
      * Append data to the buffer.
      * @param string  $data
-     * @return void
+     * @return $this
      */
-    function append(string $data): void {
+    function append(string $data): self {
         $this->buffer .= $data;
+        return $this;
     }
     
     /**
      * Prepends data to the buffer.
      * @param string  $data
-     * @return void
+     * @return $this
      */
-    function prepend(string $data): void {
+    function prepend(string $data): self {
         $this->buffer = $this->buffer.$data;
+        return $this;
     }
     
     /**
@@ -51,6 +53,15 @@ class BinaryBuffer {
      */
     function getSize(): int {
         return \strlen($this->buffer);
+    }
+    
+    /**
+     * Clears the buffer.
+     * @return $this
+     */
+    function clear(): self {
+        $this->buffer = '';
+        return $this;
     }
     
     /**
