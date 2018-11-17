@@ -132,17 +132,13 @@ class BinaryBuffer implements \ArrayAccess {
         }
         
         if($this->gmp) {
-            $result = \gmp_add(0, \unpack('n', \substr($strInt, 0, 2)));
-            $result = \gmp_mul($result, '65536');
-            $result = \gmp_add($result, \unpack('n', \substr($strInt, 2, 2)));
-            $result = \gmp_mul($result, '65536');
-            $result = \gmp_add($result, \unpack('n', \substr($strInt, 4, 2)));
-            $result = \gmp_mul($result, '65536');
-            $result = \gmp_add($result, \unpack('n', \substr($strInt, 6, 2)));
+            $result = \gmp_import($strInt, 1, (\GMP_LSW_FIRST | \GMP_LITTLE_ENDIAN));
             
             if(\gmp_cmp($result, '9223372036854775808') !== -1) {
                 $result = \gmp_sub($result, '18446744073709551616'); // $result -= (1 << 64)
             }
+            
+            $result = \gmp_strval($result);
         } else {
             $result = \bcadd('0', \unpack('n', \substr($strInt, 0, 2)));
             $result = \bcmul($result, '65536');
@@ -281,15 +277,14 @@ class BinaryBuffer implements \ArrayAccess {
         }
         
         if($this->gmp) {
+            $int = \gmp_init($int);
+            
             if(\gmp_cmp($int, '0') === -1) {
                 // 18446744073709551616 is equal to (1 << 64)
                 $int = \gmp_add($int, '18446744073709551616');
             }
             
-            return \pack('v', \gmp_mod(\gmp_div($int, '281474976710656'), '65536')).
-                \pack('v', \gmp_mod(\gmp_div($int, '4294967296'), '65536')).
-                \pack('v', \gmp_div($int, '65536'), '65536').
-                \pack('v', \gmp_mod($int, '65536'));
+            return \gmp_export($int, 1, (\GMP_LSW_FIRST | \GMP_LITTLE_ENDIAN));
         }
         
         if(\bccomp($int, '0') === -1) {
