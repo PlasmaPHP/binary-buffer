@@ -6,3 +6,6 @@ This is a binary buffer implementation. BCmath or GMP (if available) is used on 
 ```
 composer require plasma/binary-buffer
 ```
+
+# Documentation
+https://plasmaphp.github.io/binary-buffer/
