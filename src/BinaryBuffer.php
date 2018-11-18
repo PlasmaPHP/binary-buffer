@@ -23,6 +23,9 @@ class BinaryBuffer implements \ArrayAccess {
      */
     protected $gmp;
     
+    /**
+     * Constructor.
+     */
     function __construct() {
         $this->gmp = \extension_loaded('gmp');
     }
