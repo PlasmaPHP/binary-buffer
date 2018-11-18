@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="index, follow, all" />
+    <title>Plasma\BinaryBuffer | binary-buffer</title>
+
+            <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="../css/sami.css">
+        <link rel="stylesheet" type="text/css" href="../css/prism.css">
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/typeahead.min.js"></script>
+        <script src="../sami.js"></script>
+        <script src="../js/prism.js"></script>
+        <meta name="MobileOptimized" content="width">
+        <meta name="HandheldFriendly" content="true">
+        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    
+    
+    </head>
+
+    <body id="class" data-name="class:Plasma_BinaryBuffer" data-root-path="../">
+            <div id="content">
+        <div id="left-column">
+                <div id="control-panel">
+                <script>
+            $('option[data-version="'+window.projectVersion+'"]').prop('selected', true);
+        </script>
+        <form id="search-form" action="../search.html" method="GET">
+            <span class="glyphicon glyphicon-search"></span>
+            <input name="search"
+                   class="typeahead form-control"
+                   type="search"
+                   placeholder="Search">
+        </form>
+    </div>
+
+                <div id="api-tree"></div>
+
+        </div>
+        <div id="right-column">
+                <nav id="site-nav" class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-elements">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="../index.html">binary-buffer</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-elements">
+                <ul class="nav navbar-nav">
+                    <li><a href="../classes.html">Classes</a></li>
+                                                                <li><a href="../namespaces.html">Namespaces</a></li>
+                                        <li><a href="../interfaces.html">Interfaces</a></li>
+                    <li><a href="../traits.html">Traits</a></li>
+                    <li><a href="../doc-index.html">Index</a></li>
+                    <li><a href="../search.html">Search</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+                        <div class="namespace-breadcrumbs">
+            <ol class="breadcrumb">
+                <li><span class="label label-default">class</span></li>
+                        <li><a href="../Plasma.html">Plasma</a></li><li class="backslash">\</li><li>BinaryBuffer</li>
+            </ol>
+        </div>
+                <div id="page-content">
+                
+    <div class="page-header">
+        <h1>
+            BinaryBuffer
+                
+        </h1>
+    </div>
+
+    <p>    class
+    <strong>BinaryBuffer</strong>        implements
+        <a href="https://secure.php.net/ArrayAccess" target="_blank">ArrayAccess</a>        (<a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php" target="_blank">View source</a>)
+</p>
+
+        
+    
+
+            <div class="description">
+            <p>A binary buffer takes binary data and buffers it. Several methods are available to get specific data.</p>                                </div>
+    
+    
+    
+    
+            <h2>Methods</h2>
+
+            <div class="container-fluid underlined">
+                    <div class="row">
+                <div class="col-md-2 type">
+                    
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method___construct">__construct</a>()
+        
+                                            <p class="no-description">No description</p>
+                                    </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_append">append</a>(string $data)
+        
+                                            <p>Append data to the buffer.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_clear">clear</a>()
+        
+                                            <p>Clears the buffer.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getContents">getContents</a>()
+        
+                                            <p>Get the contents.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_getSize">getSize</a>()
+        
+                                            <p>Get the buffer size/length.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_prepend">prepend</a>(string $data)
+        
+                                            <p>Prepends data to the buffer.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_read">read</a>(int $length)
+        
+                                            <p>Reads a specified length from the buffer (and discards the read part from the buffer).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    float
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readDouble">readDouble</a>()
+        
+                                            <p>Reads a double precision float.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    float
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readFloat">readFloat</a>()
+        
+                                            <p>Reads a single precision float.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readInt1">readInt1</a>()
+        
+                                            <p>Parses a 1 byte / 8 bit integer (0 to 255).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readInt2">readInt2</a>()
+        
+                                            <p>Parses a 2 byte / 16 bit integer (0 to 64 K / 0xFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readInt3">readInt3</a>()
+        
+                                            <p>Parses a 3 byte / 24 bit integer (0 to 16 M / 0xFFFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readInt4">readInt4</a>()
+        
+                                            <p>Parses a 4 byte / 32 bit integer (0 to 4 G / 0xFFFFFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int|string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readInt8">readInt8</a>()
+        
+                                            <p>Parses a 8 byte / 64 bit integer (0 to 2^64-1).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    int|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readIntLength">readIntLength</a>()
+        
+                                            <p>Parses length-encoded binary integer from the MySQL protocol.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string|null
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readStringLength">readStringLength</a>(int|null $length = null)
+        
+                                            <p>Parses a length-encoded binary string from the MySQL protocol. If length is null, <code>null</code> will be returned.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_readStringNull">readStringNull</a>()
+        
+                                            <p>Reads NULL-terminated C string.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_slice">slice</a>(int $offset, int|null $length = null)
+        
+                                            <p>Slice the buffer and only keep a subset.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeDouble">writeDouble</a>(float $float)
+        
+                                            <p>Writes a double precision float.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeFloat">writeFloat</a>(float $float)
+        
+                                            <p>Writes a single precision float.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeInt1">writeInt1</a>(int $int)
+        
+                                            <p>Writes a 1 byte / 8 bit integer (0 to 255).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeInt2">writeInt2</a>(int $int)
+        
+                                            <p>Writes a 2 bytes / 16 bit integer (0 to 64 K / 0xFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeInt3">writeInt3</a>(int $int)
+        
+                                            <p>Writes a 3 byte / 24 bit integer (0 to 16 M / 0xFFFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeInt4">writeInt4</a>(int $int)
+        
+                                            <p>Writes a 4 byte / 32 bit integer (0 to 4 G / 0xFFFFFFFF).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeInt8">writeInt8</a>(string|int $int)
+        
+                                            <p>Writes a 8 byte / 64 bit integer (0 to 2^64-1).</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+                    <div class="row">
+                <div class="col-md-2 type">
+                    static&nbsp;string
+                </div>
+                <div class="col-md-8 type">
+                    <a href="#method_writeStringLength">writeStringLength</a>(string|null $str)
+        
+                                            <p>Builds length-encoded binary string from the MySQL protocol.</p>                </div>
+                <div class="col-md-2"></div>
+            </div>
+            </div>
+
+
+        <h2>Details</h2>
+
+            <div id="method-details">
+                    <div class="method-item">
+                    <h3 id="method___construct">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L26">line 26</a></div>
+        <code>                    
+    <strong>__construct</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                <div class="tags">
+            
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_append">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L35">line 35</a></div>
+        <code>                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+    <strong>append</strong>(string $data)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Append data to the buffer.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_clear">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L86">line 86</a></div>
+        <code>                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+    <strong>clear</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Clears the buffer.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getContents">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L78">line 78</a></div>
+        <code>                    string
+    <strong>getContents</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the contents.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_getSize">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L70">line 70</a></div>
+        <code>                    int
+    <strong>getSize</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Get the buffer size/length.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_prepend">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L45">line 45</a></div>
+        <code>                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+    <strong>prepend</strong>(string $data)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Prepends data to the buffer.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_read">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L352">line 352</a></div>
+        <code>                    string
+    <strong>read</strong>(int $length)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Reads a specified length from the buffer (and discards the read part from the buffer).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$length</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="https://secure.php.net/InvalidArgumentException" target="_blank">InvalidArgumentException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readDouble">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L172">line 172</a></div>
+        <code>                    float
+    <strong>readDouble</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Reads a double precision float.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>float</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readFloat">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L164">line 164</a></div>
+        <code>                    float
+    <strong>readFloat</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Reads a single precision float.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>float</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readInt1">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L95">line 95</a></div>
+        <code>                    int
+    <strong>readInt1</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a 1 byte / 8 bit integer (0 to 255).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readInt2">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L103">line 103</a></div>
+        <code>                    int
+    <strong>readInt2</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a 2 byte / 16 bit integer (0 to 64 K / 0xFFFF).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readInt3">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L111">line 111</a></div>
+        <code>                    int
+    <strong>readInt3</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a 3 byte / 24 bit integer (0 to 16 M / 0xFFFFFF).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readInt4">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L119">line 119</a></div>
+        <code>                    int
+    <strong>readInt4</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a 4 byte / 32 bit integer (0 to 4 G / 0xFFFFFFFF).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readInt8">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L127">line 127</a></div>
+        <code>                    int|string
+    <strong>readInt8</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a 8 byte / 64 bit integer (0 to 2^64-1).</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int|string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readIntLength">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L181">line 181</a></div>
+        <code>                    int|null
+    <strong>readIntLength</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses length-encoded binary integer from the MySQL protocol.</p>                    <p>Returns the decoded integer 0 to 2^64 or <code>null</code> for special null int.</p>                            </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>int|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readStringLength">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L207">line 207</a></div>
+        <code>                    string|null
+    <strong>readStringLength</strong>(int|null $length = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Parses a length-encoded binary string from the MySQL protocol. If length is null, <code>null</code> will be returned.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int|null</td>
+                <td>$length</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string|null</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_readStringNull">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L221">line 221</a></div>
+        <code>                    string
+    <strong>readStringNull</strong>()
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Reads NULL-terminated C string.</p>                                                </div>
+                <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td><a href="https://secure.php.net/InvalidArgumentException" target="_blank">InvalidArgumentException</a></td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_slice">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L56">line 56</a></div>
+        <code>                    <a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a>
+    <strong>slice</strong>(int $offset, int|null $length = null)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Slice the buffer and only keep a subset.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$offset</td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td>int|null</td>
+                <td>$length</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td><a href="../Plasma/BinaryBuffer.html"><abbr title="Plasma\BinaryBuffer">BinaryBuffer</abbr></a></td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeDouble">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L315">line 315</a></div>
+        <code>        static            string
+    <strong>writeDouble</strong>(float $float)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a double precision float.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>float</td>
+                <td>$float</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeFloat">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L306">line 306</a></div>
+        <code>        static            string
+    <strong>writeFloat</strong>(float $float)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a single precision float.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>float</td>
+                <td>$float</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInt1">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L238">line 238</a></div>
+        <code>        static            string
+    <strong>writeInt1</strong>(int $int)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a 1 byte / 8 bit integer (0 to 255).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$int</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInt2">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L247">line 247</a></div>
+        <code>        static            string
+    <strong>writeInt2</strong>(int $int)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a 2 bytes / 16 bit integer (0 to 64 K / 0xFFFF).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$int</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInt3">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L256">line 256</a></div>
+        <code>        static            string
+    <strong>writeInt3</strong>(int $int)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a 3 byte / 24 bit integer (0 to 16 M / 0xFFFFFF).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$int</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInt4">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L265">line 265</a></div>
+        <code>        static            string
+    <strong>writeInt4</strong>(int $int)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a 4 byte / 32 bit integer (0 to 4 G / 0xFFFFFFFF).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>int</td>
+                <td>$int</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeInt8">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L274">line 274</a></div>
+        <code>        static            string
+    <strong>writeInt8</strong>(string|int $int)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Writes a 8 byte / 64 bit integer (0 to 2^64-1).</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|int</td>
+                <td>$int</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+                    <div class="method-item">
+                    <h3 id="method_writeStringLength">
+        <div class="location">at         <a href="https://github.com/PlasmaPHP/binary-buffer/blob/master/src/BinaryBuffer.php#L324">line 324</a></div>
+        <code>        static            string
+    <strong>writeStringLength</strong>(string|null $str)
+        </code>
+    </h3>
+    <div class="details">
+            
+    
+
+                    <div class="method-description">
+                                    <p>Builds length-encoded binary string from the MySQL protocol.</p>                                                </div>
+                <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table class="table table-condensed">
+                    <tr>
+                <td>string|null</td>
+                <td>$str</td>
+                <td></td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table class="table table-condensed">
+        <tr>
+            <td>string</td>
+            <td></td>
+        </tr>
+    </table>
+
+            
+            
+                        
+                        
+                    </div>
+    </div>
+
+            </div>
+            </div>
+
+    
+            </div>
+                <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/">Sami, the API Documentation Generator</a>.
+    </div>
+
+        </div>
+    </div>
+    </body>
+
+</html>
