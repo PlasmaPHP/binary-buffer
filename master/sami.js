@@ -21,7 +21,7 @@ window.projectVersion = 'master';
             {"type": "Namespace", "link": "Plasma.html", "name": "Plasma", "doc": "Namespace Plasma"},
             
             {"type": "Class", "fromName": "Plasma", "fromLink": "Plasma.html", "link": "Plasma/BinaryBuffer.html", "name": "Plasma\\BinaryBuffer", "doc": "&quot;A binary buffer takes binary data and buffers it. Several methods are available to get specific data.&quot;"},
-                                                        {"type": "Method", "fromName": "Plasma\\BinaryBuffer", "fromLink": "Plasma/BinaryBuffer.html", "link": "Plasma/BinaryBuffer.html#method___construct", "name": "Plasma\\BinaryBuffer::__construct", "doc": "&quot;&quot;"},
+                                                        {"type": "Method", "fromName": "Plasma\\BinaryBuffer", "fromLink": "Plasma/BinaryBuffer.html", "link": "Plasma/BinaryBuffer.html#method___construct", "name": "Plasma\\BinaryBuffer::__construct", "doc": "&quot;Constructor.&quot;"},
                     {"type": "Method", "fromName": "Plasma\\BinaryBuffer", "fromLink": "Plasma/BinaryBuffer.html", "link": "Plasma/BinaryBuffer.html#method_append", "name": "Plasma\\BinaryBuffer::append", "doc": "&quot;Append data to the buffer.&quot;"},
                     {"type": "Method", "fromName": "Plasma\\BinaryBuffer", "fromLink": "Plasma/BinaryBuffer.html", "link": "Plasma/BinaryBuffer.html#method_prepend", "name": "Plasma\\BinaryBuffer::prepend", "doc": "&quot;Prepends data to the buffer.&quot;"},
                     {"type": "Method", "fromName": "Plasma\\BinaryBuffer", "fromLink": "Plasma/BinaryBuffer.html", "link": "Plasma/BinaryBuffer.html#method_slice", "name": "Plasma\\BinaryBuffer::slice", "doc": "&quot;Slice the buffer and only keep a subset.&quot;"},
