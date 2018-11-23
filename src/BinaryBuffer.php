@@ -19,15 +19,17 @@ class BinaryBuffer implements \ArrayAccess {
     protected $buffer = '';
     
     /**
-     * @var bool
+     * @var bool|null
      */
-    protected $gmp;
+    protected static $gmp;
     
     /**
      * Constructor.
      */
     function __construct() {
-        $this->gmp = \extension_loaded('gmp');
+        if(static::$gmp === null) {
+            static::$gmp = \extension_loaded('gmp');
+        }
     }
     
     /**
@@ -126,6 +128,7 @@ class BinaryBuffer implements \ArrayAccess {
     /**
      * Parses a 8 byte / 64 bit integer (0 to 2^64-1).
      * @return int|string
+     * @throws \RuntimeException
      */
     function readInt8() {
         $strInt = $this->read(8);
@@ -134,8 +137,11 @@ class BinaryBuffer implements \ArrayAccess {
             return \unpack('P', $strInt)[1];
         }
         
-        if($this->gmp) {
+        if(static::$gmp) {
             $result = \gmp_import($strInt, 1, (\GMP_LSW_FIRST | \GMP_LITTLE_ENDIAN));
+            if($result === false) {
+                throw new \RuntimeException('Unable to convert input into an integer');
+            }
             
             if(\gmp_cmp($result, '9223372036854775808') !== -1) {
                 $result = \gmp_sub($result, '18446744073709551616'); // $result -= (1 << 64)
@@ -143,13 +149,13 @@ class BinaryBuffer implements \ArrayAccess {
             
             $result = \gmp_strval($result);
         } else {
-            $result = \bcadd('0', \unpack('n', \substr($strInt, 0, 2)));
+            $result = \bcadd('0', \unpack('n', \substr($strInt, 0, 2))[1]);
             $result = \bcmul($result, '65536');
-            $result = \bcadd($result, \unpack('n', \substr($strInt, 2, 2)));
+            $result = \bcadd($result, \unpack('n', \substr($strInt, 2, 2))[1]);
             $result = \bcmul($result, '65536');
-            $result = \bcadd($result, \unpack('n', \substr($strInt, 4, 2)));
+            $result = \bcadd($result, \unpack('n', \substr($strInt, 4, 2))[1]);
             $result = \bcmul($result, '65536');
-            $result = \bcadd($result, \unpack('n', \substr($strInt, 6, 2)));
+            $result = \bcadd($result, \unpack('n', \substr($strInt, 6, 2))[1]);
             
             // 9223372036854775808 is equal to (1 << 63)
             if(\bccomp($result, '9223372036854775808') !== -1) {
@@ -279,7 +285,7 @@ class BinaryBuffer implements \ArrayAccess {
             return \pack('P', ((int) $int));
         }
         
-        if($this->gmp) {
+        if(static::$gmp) {
             $int = \gmp_init($int);
             
             if(\gmp_cmp($int, '0') === -1) {
@@ -325,7 +331,7 @@ class BinaryBuffer implements \ArrayAccess {
      * @return string
      */
     static function writeStringLength(?string $str): string {
-        if($str === NULL) {
+        if($str === null) {
             // \xFB (251)
             return "\xFB";
         }
