@@ -25,11 +25,14 @@ class BinaryBuffer implements \ArrayAccess {
     
     /**
      * Constructor.
+     * @param string  $buffer
      */
-    function __construct() {
+    function __construct(string $buffer = '') {
         if(static::$gmp === null) {
             static::$gmp = \extension_loaded('gmp');
         }
+        
+        $this->buffer = $buffer;
     }
     
     /**
@@ -356,12 +359,12 @@ class BinaryBuffer implements \ArrayAccess {
      * Reads a specified length from the buffer (and discards the read part from the buffer).
      * @param int  $length
      * @return string
-     * @throws \InvalidArgumentException
+     * @throws \OverflowException
      */
     function read(int $length): string {
         $size = $this->getSize();
         if($size < $length) {
-            throw new \InvalidArgumentException('Trying to read behind buffer, requested '.$length.' bytes, only got '.$size.' bytes');
+            throw new \OverflowException('Trying to read behind buffer, requested '.$length.' bytes, only got '.$size.' bytes');
         }
         
         $str = \substr($this->buffer, 0, $length);
@@ -406,9 +409,10 @@ class BinaryBuffer implements \ArrayAccess {
     /**
      * @param int  $offset
      * @return void
+     * @throws \BadMethodCallException
      * @internal
      */
     function offsetUnset($offset) {
-        unset($this->buffer[$offset]);
+        throw new \BadMethodCallException('String offsets can not be unset');
     }
 }
